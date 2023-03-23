@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
@@ -16,10 +15,12 @@ using EnhancedTouch = UnityEngine.InputSystem.EnhancedTouch;
 public class PlaceObject : MonoBehaviour
 {
 
-    [SerializeField] private GameObject objectPrefab;
+    [SerializeField] private GameObject[] objectPrefab;
 
     private ARRaycastManager rayManager;
     private ARPlaneManager planeManager;
+    private List<ARRaycastHit> hits = new List<ARRaycastHit>();
+    //above initialise a new list to store all the raycast hits
 
     private void Awake()
     {
@@ -44,6 +45,37 @@ public class PlaceObject : MonoBehaviour
         //above is an event, the syntax -= is to unsubscribe to the event and remove a listener method
 
     }
+
+    private void FingerDown(EnhancedTouch.Finger finger)
+    {
+        if (finger.index != 0) //0 is the first in the index, so if using more than 1 finger
+            //then don't do anything
+            return;
+        else
+        {
+            HandleRaycast(finger);
+
+        }
+
+    }
+
+    private void HandleRaycast(EnhancedTouch.Finger finger)
+    {
+        if (rayManager.Raycast(screenPoint: finger.currentTouch.screenPosition,
+            hitResults: hits, trackableTypes: TrackableType.PlaneWithinPolygon))
+        {
+            foreach (ARRaycastHit hit in hits)
+            {
+                int i = Random.Range(0, objectPrefab.Length);
+                Pose pose = hit.pose;
+                GameObject obj = Instantiate(original: objectPrefab[i], position:
+                    pose.position, rotation: pose.rotation);
+            }
+
+        }
+    }
+
+
 
 
 }
