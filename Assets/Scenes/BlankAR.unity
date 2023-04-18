@@ -740,6 +740,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bronze_Vassel_02
       objectReference: {fileID: 0}
+    - target: {fileID: 7453712940624022322, guid: be287cbd1d6b5334383515ebf8c7b8ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7798889581454086536, guid: be287cbd1d6b5334383515ebf8c7b8ea,
         type: 3}
       propertyPath: m_RootOrder
