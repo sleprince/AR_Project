@@ -108,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4391974522247729361}
   - component: {fileID: 5319570961587162580}
+  - component: {fileID: 1595888827478165377}
   m_Layer: 0
   m_Name: Cauldron
   m_TagString: Untagged
@@ -148,6 +149,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &1595888827478165377
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4015167023533525611}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2517823339737599436, guid: 11d631272dc9c1c4e89b2906013ee712, type: 3}
 --- !u!1 &8968956267711611843
 GameObject:
   m_ObjectHideFlags: 0
